@@ -9,7 +9,7 @@ answers: ['Lima', 'Bogota', 'Santiago'],
 correctAnswer: 'Bogota',
     },
     {topic: 'History',
-        questions: 'What year was the oldest university in Europe founded? ',
+        question: 'What year was the oldest university in Europe founded?',
         answers:['1088', '1122', '1065'],
         correctAnswer: '1088',
     },
@@ -65,7 +65,7 @@ if(currentQuestionIndex===0){
     quizStartTime = new Date();
 }
 //Set the question and topic in the question container
-questionContainer.innerHTML=`<p><strong>Topic:</strong> ${quizData[index].topic}</p>
+questionContainer.innerHTML=`<p><strong>Topic:</strong> ${quizData[index].topic}</p><br>
 <p>${quizData[index].question}</p>`;
 
 
@@ -90,9 +90,35 @@ quizData[index].answers.forEach((answer)=>{
 };
 
 
-function checkAnswer(){};
+function checkAnswer(selectedAnswer, correctAnswer){
+    if(selectedAnswer===correctAnswer){
+        score++
+    }
 
-function startTimer(){};
+    //Load the next question after the answer is checked
+    currentQuestionIndex++;
+    if(currentQuestionIndex<quizData.length){
+        loadQuestion(currentQuestionIndex);
+    }else{
+        showResults();
+    }
+};
+
+function startTimer(){
+    timerContainer.style.display ='block';
+    timeLeft = 15;
+    timerContainer.textContent = `Time left: ${timeLeft} seconds`;
+
+    timer = setInterval(() =>{
+        timeLeft--;
+        timerContainer.textContent=`Time left: ${timeLeft} seconds`;
+
+        if(timeLeft<=0){
+            clearInterval(timer);
+            timeUp();//handle when time runs out
+        }
+    }, 1000);
+};
 
 function resetTimer(){};
 
