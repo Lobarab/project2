@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+    loadQuestion(currentQuestionIndex);
+});
+
 let quizData = [
     {topic: 'Geography',
 question: 'What is the capital city of Colombia?',
@@ -56,9 +60,35 @@ let timerContainer = document.getElementById('timer-container');
 
 
 
-function loadQuestion(){
+function loadQuestion(index){
+if(currentQuestionIndex===0){
+    quizStartTime = new Date();
+}
+//Set the question and topic in the question container
+questionContainer.innerHTML=`<p><strong>Topic:</strong> ${quizData[index].topic}</p>
+<p>${quizData[index].question}</p>`;
 
+
+//clear previous answers
+answerContainer.innerHTML="";
+resetTimer();
+startTimer();
+
+//Loop through the answers array and create buttons
+quizData[index].answers.forEach((answer)=>{
+    let button = document.createElement('button');
+    button.classList.add('answer-btn');
+    button.textContent=answer;
+
+    //Add click event to handle answer selection
+    button.addEventListener('click', () =>{
+      checkAnswer(answer, quizData[index].correctAnswer);
+    });
+
+    answerContainer.appendChild(button);
+});
 };
+
 
 function checkAnswer(){};
 
