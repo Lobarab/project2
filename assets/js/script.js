@@ -26,13 +26,13 @@ correctAnswer: 'bacteria',
 
    {topic: 'Art',
     question: 'Which artist painted the portrait of Mona Lisa?',
-    answers: ['Loenardo da Vinci', 'Van Gogh', 'Pablo Picasso'],
+    answers: ['Leonardo da Vinci', 'Van Gogh', 'Pablo Picasso'],
     correctAnswer: 'Leonardo da Vinci',
    },
 
    {topic: 'Literature',
     question: 'What id the name of the famous detective series written by Agatha Christie?',
-    answers: ['Poirot', 'Sherlock Holmes', 'Columbo'],
+    answers: ['Poirot', 'Sherlock Holmes', 'Colombo'],
     correctAnswer: 'Poirot',
    },
    {topic: 'Math',
@@ -111,21 +111,62 @@ function startTimer(){
 
     timer = setInterval(() =>{
         timeLeft--;
-        timerContainer.textContent=`Time left: ${timeLeft} seconds`;
+        timerContainer.textContent=`Time left: ${timeLeft} seconds!`;
+        
 
-        if(timeLeft<=0){
+        if(timeLeft <= 0){
             clearInterval(timer);
             timeUp();//handle when time runs out
         }
     }, 1000);
 };
 
-function resetTimer(){};
+function resetTimer(){
+    clearInterval(timer);
+};
 
-function timeUp(){};
+function timeUp(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < quizData.length){
+        loadQuestion(currentQuestionIndex);
+    }else{
+        showResults();
+    }
+};
 
-function showResults(){};
 
-function resetQuiz(){};
 
-function restartQuiz(){};
+function showResults(){
+    resetQuiz()
+    questionContainer.innerHTML="<h2>Quiz Completed!</h2>";
+    //Calculate the total time taken
+    let quizEndTime = new Date();
+    let timeTaken = Math.floor((quizEndTime - quizStartTime)/1000);//Convert to seconds
+
+    //Display user's score
+    let scoreMessage = document.createElement('p');
+    scoreMessage.innerHTML = `You scored ${score} out of ${quizData.length} in ${timeLeft} seconds!`;
+
+    questionContainer.appendChild(scoreMessage);
+
+    //Create  restart button
+    let restartButton = document.createElement('button');
+    restartButton.textContent="Restart Quiz";
+    restartButton.classList.add('restart-btn');
+    restartButton.addEventListener('click', restartQuiz);
+    answerContainer.appendChild(restartButton);
+    timerContainer.style.display = 'none';
+    
+    
+};
+
+function resetQuiz(){
+    answerContainer.innerHTML = '';
+};
+
+function restartQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    timerContainer.style.display = 'block';
+    loadQuestion(currentQuestionIndex);
+};
