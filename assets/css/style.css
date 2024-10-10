@@ -39,6 +39,12 @@ body{
     color: #444;
 }
 
+#timer-container {
+    font-size: 18px;
+    color: #ff4444;
+    margin-top: 10px;
+    text-align: center;
+}
 .answer{
     display: flex;
     flex-direction: column;
@@ -71,4 +77,7 @@ body{
     transition: background-color 0.3s ease;
     margin-top: 20px;
     font-size: larger;
+}
+.restart-btn:hover{
+    background-color: #218838;
 }
