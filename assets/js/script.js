@@ -31,7 +31,7 @@ correctAnswer: 'bacteria',
    },
 
    {topic: 'Literature',
-    question: 'What id the name of the famous detective series written by Agatha Christie?',
+    question: 'What is the name of the famous detective series written by Agatha Christie?',
     answers: ['Poirot', 'Sherlock Holmes', 'Colombo'],
     correctAnswer: 'Poirot',
    },
@@ -45,13 +45,11 @@ correctAnswer: 'bacteria',
      answers: ['in motion', 'stationary', 'in freefall'],
      correctAnswer: 'stationary',
    }
-   
-
-];
+   ];
 
 let questionContainer = document.getElementById('question-container');
 let answerContainer = document.getElementById('answer-container');
-let currentQuestionIndex =0;
+let currentQuestionIndex = 0;
 let score = 0;
 let timer;
 let timeLeft = 15; //15 seconds per question
@@ -60,14 +58,14 @@ let timerContainer = document.getElementById('timer-container');
 
 
 
-function loadQuestion(index){
+function loadQuestion(index) {
 if(currentQuestionIndex===0){
     quizStartTime = new Date();
 }
+
 //Set the question and topic in the question container
 questionContainer.innerHTML=`<p><strong>Topic:</strong> ${quizData[index].topic}</p><br>
 <p>${quizData[index].question}</p>`;
-
 
 //clear previous answers
 answerContainer.innerHTML="";
@@ -75,26 +73,24 @@ resetTimer();
 startTimer();
 
 //Loop through the answers array and create buttons
-quizData[index].answers.forEach((answer)=>{
+quizData[index].answers.forEach((answer)=> {
     let button = document.createElement('button');
     button.classList.add('answer-btn');
     button.textContent=answer;
 
     //Add click event to handle answer selection
-    button.addEventListener('click', () =>{
+      button.addEventListener('click', () =>{
       checkAnswer(answer, quizData[index].correctAnswer);
     });
-
     answerContainer.appendChild(button);
 });
 };
 
 
-function checkAnswer(selectedAnswer, correctAnswer){
-    if(selectedAnswer===correctAnswer){
+function checkAnswer(selectedAnswer, correctAnswer) {
+    if(selectedAnswer===correctAnswer) {
         score++
     }
-
     //Load the next question after the answer is checked
     currentQuestionIndex++;
     if(currentQuestionIndex<quizData.length){
@@ -104,7 +100,7 @@ function checkAnswer(selectedAnswer, correctAnswer){
     }
 };
 
-function startTimer(){
+function startTimer() {
     timerContainer.style.display ='block';
     timeLeft = 15;
     timerContainer.textContent = `Time left: ${timeLeft} seconds`;
@@ -114,18 +110,18 @@ function startTimer(){
         timerContainer.textContent=`Time left: ${timeLeft} seconds!`;
         
 
-        if(timeLeft <= 0){
+        if(timeLeft <= 0) {
             clearInterval(timer);
             timeUp();//handle when time runs out
         }
     }, 1000);
 };
 
-function resetTimer(){
+function resetTimer() {
     clearInterval(timer);
 };
 
-function timeUp(){
+function timeUp() {
     currentQuestionIndex++;
     if(currentQuestionIndex < quizData.length){
         loadQuestion(currentQuestionIndex);
@@ -136,7 +132,7 @@ function timeUp(){
 
 
 
-function showResults(){
+function showResults() {
     resetQuiz()
     questionContainer.innerHTML="<h2>Quiz Completed!</h2>";
     //Calculate the total time taken
@@ -160,11 +156,11 @@ function showResults(){
     
 };
 
-function resetQuiz(){
+function resetQuiz() {
     answerContainer.innerHTML = '';
 };
 
-function restartQuiz(){
+function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     timerContainer.style.display = 'block';
