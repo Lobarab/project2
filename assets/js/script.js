@@ -115,11 +115,11 @@ function startTimer() {
             timeUp();//handle when time runs out
         }
     }, 1000);
-};
+}
 
 function resetTimer() {
     clearInterval(timer);
-};
+}
 
 function timeUp() {
     currentQuestionIndex++;
@@ -128,7 +128,7 @@ function timeUp() {
     }else{
         showResults();
     }
-};
+}
 
 
 
@@ -154,15 +154,15 @@ function showResults() {
     timerContainer.style.display = 'none';
     
     
-};
+}
 
 function resetQuiz() {
     answerContainer.innerHTML = '';
-};
+}
 
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     timerContainer.style.display = 'block';
     loadQuestion(currentQuestionIndex);
-};
+}

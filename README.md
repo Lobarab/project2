@@ -10,14 +10,36 @@
 
 <h2>Features:</h2>
 <p>The quiz webpage has following features:
-<ul> <li>Background image corresponding to the nature of the quiz.</li>
-<li>Header that describes the aim of the quiz.</li>
-<li>A container with question and answers. </li>
-<li>Topic of the question subject within the container.</li>
-<li>Timer.</li>
-<li>Three answer buttons with each containing an answer options</li>
+<ul> <li>Background image corresponding to the nature of the quiz:
+
+![image](/assets/images/project2background.webp)
+</li>
+<li>Header that describes the aim of the quiz:
+
+![image](/assets/images/Screenshot%202024-10-13%20at%2022.18.47.png)
+</li>
+<li>A container with question and answers:
+
+![image](/assets/images/Screenshot%202024-10-13%20at%2022.20.55.png)
+ </li>
+<li>Topic of the question subject within the container:
+
+![image](/assets/images/Screenshot%202024-10-13%20at%2022.19.23.png)
+
+</li>
+<li>Timer:
+
+![image](/assets/images/Screenshot%202024-10-13%20at%2022.20.10.png)
+
+</li>
+<li>Three answer buttons with each containing an answer options:
+
+![image](/assets/images/Screenshot%202024-10-13%20at%2022.21.38.png)
+
+</li>
 </ul>
 </p>
+<p>Full screen image:</p>
 
 ![image](/assets/images/Screenshot%202024-10-13%20at%2021.56.16.png)
 
@@ -85,6 +107,17 @@ Each function is tested with console.log in the console of dev tools within brow
 <li>The webpage is responsive in  various screensizes: mobile, tablet, laptop, PC.</li>
 <li>The webpage has been tested in different browser such as Safari, Chrome, Firefox.</li>
 <li>HTML and CSS files have been checked via W3C Validator and has no errors.</li>
+<li>No errors were found in Javascript code when checked via Jshint.com and following feed back was returned:
+<br>
+
+There are 12 functions in this file.
+
+Function with the largest signature take 2 arguments, while the median is 0.
+
+Largest function has 13 statements in it, while the median is 4.
+
+The most complex function has a cyclomatic complexity value of 3 while the median is 1.
+</li>
 </ul>
 
 <strong>Troubleshooting:</strong>
