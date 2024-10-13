@@ -6,7 +6,7 @@
 <p> Check Your Knowledge Quiz is a user interactive webpage that offers the user to check their knowledge on various subjects such as art, history, literature, geography etc. The user is presented with 3 options one of which is the correct answer. Also the quiz contains a timer, set for 15 seconds per question.
  </p>
 
- ![image](/assets/images/Screenshot%202024-10-10%20at%2020.55.16.png)
+ ![image](/assets/images/Screenshot%202024-10-13%20at%2021.58.47.png)
 
 <h2>Features:</h2>
 <p>The quiz webpage has following features:
@@ -19,7 +19,7 @@
 </ul>
 </p>
 
-![image](/assets/images/Screenshot%202024-10-13%20at%2016.48.44.png)
+![image](/assets/images/Screenshot%202024-10-13%20at%2021.56.16.png)
 
 
 <h2>Webpage Structure and Make up:</h2>
@@ -91,6 +91,7 @@ Each function is tested with console.log in the console of dev tools within brow
 <p><ul><li>The mobile screen had h1 font leaking to the right and the main container was stuck to the bottom of the page. It was fixed by applying changes to media queries.</li>
 <li>Background image was splitting in one third of the laptop screen size and it was fixed by setting "background-size: cover" in CSS</li>
 <li>In Javascript, within showResult function I had timerContainer being visible and showing the seconds counting. It was fixed by setting its style.display to "none"</li>
+<li> There are no unfixed bugs.</li>
 </ul>
 </p>
 
@@ -98,9 +99,16 @@ Each function is tested with console.log in the console of dev tools within brow
 <strong>Accessibility:</strong>
 <p>The result of the Dev tools Lighthouse audit for the webpage:
 
-![image](/assets/images/Screenshot%202024-10-10%20at%2020.58.57.png)
+![image](/assets/images/Screenshot%202024-10-13%20at%2022.03.52.png)
 
 </p>
 
+<h2>Deployment:</h2>
 
+<p>The webpage has been deployed on GitHub by choosing main branch /root in Pages section of Settings.
+<br>
+the link to the webpage:  https://lobarab.github.io/project2/
+</p>
 
+<h2>Media:</h2>
+<p> Background image has been taken from Pinterest quiz related images.</p>
